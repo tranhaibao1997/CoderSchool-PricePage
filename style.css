@@ -1,0 +1,39 @@
+.first
+{
+    padding-top: 100px;
+}
+section
+{
+   
+    min-height: 700px;
+}
+.card
+{
+    width: 100% !important;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 40px rgba(59, 43, 91, 0.3);
+}
+.card-text
+{
+    min-height: 75px;
+}
+.second
+{
+    background-color: #e9ebee;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.third
+{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://cs-pricing-page.netlify.app/img/banner.jpg");
+}
+.fourth
+{
+    background-color: #e9ebee;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}

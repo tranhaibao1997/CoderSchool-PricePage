@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/a8c4c24db6.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CoderSchool Price Page</title>
+</head>
+
+<body>
+
+
+    <!-- Optional JavaScript -->
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            //made by vipul mirajkar thevipulm.appspot.com
+            var TxtType = function (el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+
+            TxtType.prototype.tick = function () {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+
+                if (this.isDeleting) {
+                    this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                    this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+
+                this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+                var that = this;
+                var delta = 200 - Math.random() * 100;
+
+                if (this.isDeleting) { delta /= 2; }
+
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                }
+
+                setTimeout(function () {
+                    that.tick();
+                }, delta);
+            };
+
+            window.onload = function () {
+                var elements = document.getElementsByClassName('typewrite');
+                for (var i = 0; i < elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-type');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                        new TxtType(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                document.body.appendChild(css);
+            };
+        });
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!--Nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CoderSchool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Team</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="https://checkoutpage-haibao-coderschool.netlify.app/">Checkout <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">VN</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">|<span class="sr-only">(current)</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a class="nav-link" href="#">ENG</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Nav bar-->
+
+
+    <section class="text-center first">
+        <img src="https://cs-pricing-page.netlify.app/img/logo.jpeg" alt="logo">
+        <h1>Courses Starting September 2019</h1>
+        <p>Designed to help talented individuals meet and learn new technologies fast. Meet 5 times a week for full
+            stack web development training.</p>
+        <h1>
+            <p class="typewrite text-danger" data-period="2000"
+                data-type='[ "Ready to change your life?", "What are u waiting for?", "Top-Rated Programming Courses Starting September 2019", "Join CoderSchool today!" ]'>
+                <span class="wrap"></span>
+            </p>
+        </h1>
+    </section>
+    <section class="second">
+        <div class="container">
+            <h1 class="text-center text-danger">Curriculum designed to get you hired</h1>
+            <p class="text-center">Originally developed in Silicon Valley, our teaching materials bring a wealth of
+                experience in coding education. We focus on real-world projects so you can build a strong portfolio of
+                real apps that simulate the types of challenges you will meet in your professional career.</p>
+            <div class="row">
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://cs-pricing-page.netlify.app/img/card1.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Full Stack Web Development
+                            </h5>
+                            <p class="card-text">HTML/CSS, Javascript, React, Python, Flask</p>
+                            <div class="text-right">
+                                <a href="#" class="btn btn-danger ">Learn More</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://cs-pricing-page.netlify.app/img/card2.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">AI/ML Data Science</h5>
+                            <p class="card-text">Python, SQL, Machine Learning, Deep Learning, NLP, GCP, End-to-end
+                                Machine Learning</p>
+                            <div class="text-right">
+                                <a href="#" class="btn btn-danger ">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="https://cs-pricing-page.netlify.app/img/card3.png"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile App Development</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <div class="text-right">
+                                <a href="#" class="btn btn-danger ">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="third">
+<h1>
+    <i class="fas fa-history"></i>History
+</h1>
+<div class="quote text-center">
+<p>Over the past 5 years we've trained over 800 developers.</p>
+<p>Our alumni include engineers currently working at Grab, Facebook, Google, & Netflix</p>
+</div>
+    </section>
+
+    <section class="fourth">
+        <div class="container">
+            <h1 class="text-center text-danger">Learn more</h1>
+            <p class="text-center">We have guidance counslers available to support you in your learning journey. Enter your information to schedule a consultation</p>
+            <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">First Name</label>
+                    <input type="firstname" class="form-control" id="inputFirstname" placeholder="First Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Last Name</label>
+                    <input type="lastname" class="form-control" id="inputPassword4" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Phone</label>
+                      <input type="password" class="form-control" id="inputPassword4" placeholder="Phone">
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label for="inputAddress">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+                <div class="text-center">
+                    <button style="width: 100%;" type="submit" class="btn btn-danger">Sign in</button>
+                </div>
+                
+              </form>
+        </div>
+
+    </section>
+    <footer>
+        <p class="text-center" style="padding-top: 30px;">Built with ❤️ by<a href="https://github.com/tranhaibao1997/CoderSchool-PricePage"> Hai Bao Tran</a> </p>
+    </footer>
+
+
+</body>
+
+</html>
